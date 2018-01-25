@@ -60,6 +60,15 @@ cool = []
   cool
 end
 
-#come back
+
 def organize_schools(collection)
-end 
+  schools_by_location = {}
+  collection.each do |name, location_hash|
+    if schools_by_location[location_hash[:location]].nil? 
+      schools_by_location[location_hash[:location]] = [name]
+    else 
+      schools_by_location[location_hash[:location]] << name
+    end 
+  end
+  schools_by_location
+end
